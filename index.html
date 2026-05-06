@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>云析市场雷达</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="app-surface" aria-label="云析市场雷达演示版">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Market Pulse AI</p>
+            <h1>云析市场雷达</h1>
+          </div>
+          <div class="status-pill" id="dataStatus">读取中</div>
+        </header>
+
+        <nav class="tabs" aria-label="页面导航">
+          <button class="tab active" data-view="home">总览</button>
+          <button class="tab" data-view="report">晨报</button>
+          <button class="tab" data-view="rankings">榜单</button>
+          <button class="tab" data-view="about">项目</button>
+        </nav>
+
+        <section class="view active" id="view-home">
+          <div class="hero-panel">
+            <div>
+              <span class="section-kicker">今日市场情绪</span>
+              <div class="score-row">
+                <strong id="sentimentScore">--</strong>
+                <span>/10</span>
+              </div>
+              <p class="status-text" id="sentimentStatus">等待数据</p>
+            </div>
+            <div class="gauge" id="scoreGauge" aria-label="情绪评分仪表">
+              <span></span>
+            </div>
+          </div>
+
+          <p class="summary" id="marketSummary">正在读取市场摘要。</p>
+
+          <div class="metric-grid">
+            <article class="metric">
+              <span>交易对</span>
+              <strong id="assetCount">--</strong>
+            </article>
+            <article class="metric">
+              <span>24h成交额</span>
+              <strong id="totalVolume">--</strong>
+            </article>
+            <article class="metric">
+              <span>上涨占比</span>
+              <strong id="risingRatio">--</strong>
+            </article>
+            <article class="metric">
+              <span>Top5集中度</span>
+              <strong id="top5Ratio">--</strong>
+            </article>
+          </div>
+
+          <section class="panel">
+            <div class="panel-head">
+              <h2>大盘核心</h2>
+              <span id="updateTime">--</span>
+            </div>
+            <div class="asset-list" id="coreAssets"></div>
+          </section>
+        </section>
+
+        <section class="view" id="view-report">
+          <section class="panel">
+            <div class="panel-head">
+              <h2>情绪因子</h2>
+              <span>自动计算</span>
+            </div>
+            <div class="factor-list" id="sentimentFactors"></div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-head">
+              <h2>板块热度</h2>
+              <span>按成交额排序</span>
+            </div>
+            <div class="sector-list" id="sectors"></div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-head">
+              <h2>风险信号</h2>
+              <span>非投资建议</span>
+            </div>
+            <div class="signal-list" id="riskSignals"></div>
+          </section>
+        </section>
+
+        <section class="view" id="view-rankings">
+          <section class="panel">
+            <div class="panel-head">
+              <h2>涨幅榜</h2>
+              <span>Top 10</span>
+            </div>
+            <div class="ranking-list" id="topGainers"></div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-head">
+              <h2>跌幅榜</h2>
+              <span>Top 10</span>
+            </div>
+            <div class="ranking-list" id="topLosers"></div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-head">
+              <h2>成交活跃</h2>
+              <span>Top 10</span>
+            </div>
+            <div class="ranking-list" id="mostActive"></div>
+          </section>
+        </section>
+
+        <section class="view" id="view-about">
+          <section class="about-block">
+            <span class="section-kicker">Project Story</span>
+            <h2>从本地 Skill 到小程序产品</h2>
+            <p>
+              本演示版基于水心云独立搭建的 Crypto Market Analyzer Skill，将公开市场数据抓取、EMA/RSI 指标计算、市场情绪评分、板块分析和风险信号整理成小程序可读取的 JSON。
+            </p>
+            <p>
+              项目用于展示数据分析、自动化报告生成、产品设计和前端落地能力。内容仅用于市场观察和作品展示，不构成任何投资建议。
+            </p>
+          </section>
+
+          <section class="panel">
+            <div class="panel-head">
+              <h2>观察清单</h2>
+              <span>Skill输出</span>
+            </div>
+            <div class="signal-list" id="watchlist"></div>
+          </section>
+        </section>
+      </section>
+    </main>
+
+    <script src="./data.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
